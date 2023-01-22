@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { SerialinfoService } from 'src/app/services/serialinfo.service';
 
 @Component({
@@ -8,12 +9,30 @@ import { SerialinfoService } from 'src/app/services/serialinfo.service';
 })
 export class SerialyPage implements OnInit {
 
-  constructor(private SerialinfoService: SerialinfoService) { }
+  serialy = [];
+  aktualniStranka = 1;
+
+  constructor(private SerialinfoService: SerialinfoService, private controller: LoadingController) { }
 
   ngOnInit() {
-    this.SerialinfoService.getNejlepeHodnoceneSerialy().subscribe((res) => {
-      console.log(res);
-    });
+    this.nacteniSerialu();
   }
 
+   async nacteniSerialu(){
+
+      const loading = await this.controller.create({
+        message: 'nacitam serialy...',
+        spinner: 'bubbles',
+
+      } );
+
+      await loading.present();
+
+
+      this.SerialinfoService.getNejlepeHodnoceneSerialy(this.aktualniStranka).subscribe((res) => {
+        loading.dismiss();
+     //   this.serialy.push (...res.results);
+        console.log(res);
+      });
+    }
 }
