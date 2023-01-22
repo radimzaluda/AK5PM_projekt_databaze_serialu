@@ -1,0 +1,7 @@
+{
+  "name": "AK5PM_projekt_databaze_serialu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
