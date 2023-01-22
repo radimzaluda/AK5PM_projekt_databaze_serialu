@@ -11,6 +11,9 @@ export class SerialyPage implements OnInit {
   constructor(private SerialinfoService: SerialinfoService) { }
 
   ngOnInit() {
+    this.SerialinfoService.getNejlepeHodnoceneSerialy().subscribe((res) => {
+      console.log(res);
+    });
   }
 
 }
