@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { SerialinfoService } from 'src/app/services/serialinfo.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-serialy',
@@ -9,10 +10,14 @@ import { SerialinfoService } from 'src/app/services/serialinfo.service';
 })
 export class SerialyPage implements OnInit {
 
-  serialy = [];
-  aktualniStranka = 1;
+  serialy = [] as any;
+  currentPage = 1;
+  imageBaseUrl = environment.images;
 
-  constructor(private SerialinfoService: SerialinfoService, private controller: LoadingController) { }
+  constructor(
+    private SerialinfoService: SerialinfoService,
+     private loadingCtrl: LoadingController) 
+     { }
 
   ngOnInit() {
     this.nacteniSerialu();
@@ -20,19 +25,33 @@ export class SerialyPage implements OnInit {
 
    async nacteniSerialu(){
 
-      const loading = await this.controller.create({
-        message: 'nacitam serialy...',
+      const loading = await this.loadingCtrl.create({
+        message: 'Načítám další seriály...',
         spinner: 'bubbles',
 
       } );
 
       await loading.present();
 
-
-      this.SerialinfoService.getNejlepeHodnoceneSerialy(this.aktualniStranka).subscribe((res) => {
+ this.SerialinfoService.getNejlepeHodnoceneSerialy(this.currentPage).subscribe(
+      (res) => {
         loading.dismiss();
-     //   this.serialy.push (...res.results);
-        console.log(res);
-      });
-    }
+        this.serialy.push(...res.results);
+ 
+        event?.target.complete();
+        if (event) {
+          event.target.disabled = res.total_pages === this.currentPage;
+        }
+      },
+      (err) => {
+        console.log(err);
+        loading.dismiss();
+      }
+    );
+  }
+ 
+  loadMore(event: InfiniteScrollCustomEvent) {
+    this.currentPage++;
+    this.nacteniSerialu(event);
+  }
 }

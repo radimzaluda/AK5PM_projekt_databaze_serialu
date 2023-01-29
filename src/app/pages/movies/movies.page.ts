@@ -24,7 +24,7 @@ export class MoviesPage implements OnInit {
  
   async nactiFilmy(event?: InfiniteScrollCustomEvent) {
     const loading = await this.loadingCtrl.create({
-      message: 'Loading..',
+      message: 'Načítám další filmy...',
       spinner: 'bubbles',
     });
     await loading.present();
