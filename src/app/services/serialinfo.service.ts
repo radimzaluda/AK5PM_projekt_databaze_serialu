@@ -24,12 +24,12 @@ export class SerialinfoService {
 
   getNejlepeHodnoceneSerialy(page = 1):Observable<api> {
 
-    return this.http.get<api>(`${environment.baseUrl}/movie/popular?api_key=${environment.apiKey}&page=${page}`);
+    return this.http.get<api>(`${environment.baseUrl}/tv/popular?api_key=${environment.apiKey}&page=${page}`);
   }
     
-  getSerialInfo(id: string){
+  getSerialInfo(id: string|null){
 
     return this.http.get<any>(
-      `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}`);
+      `${environment.baseUrl}/tv/${id}?api_key=${environment.apiKey}`);
   }
 }

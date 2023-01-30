@@ -23,7 +23,7 @@ export class SerialyPage implements OnInit {
     this.nacteniSerialu();
   }
 
-   async nacteniSerialu(){
+   async nacteniSerialu(event?: InfiniteScrollCustomEvent){
 
       const loading = await this.loadingCtrl.create({
         message: 'Načítám další seriály...',
@@ -37,7 +37,7 @@ export class SerialyPage implements OnInit {
       (res) => {
         loading.dismiss();
         this.serialy.push(...res.results);
- 
+
         event?.target.complete();
         if (event) {
           event.target.disabled = res.total_pages === this.currentPage;
@@ -52,6 +52,6 @@ export class SerialyPage implements OnInit {
  
   loadMore(event: InfiniteScrollCustomEvent) {
     this.currentPage++;
-    this.nacteniSerialu(event);
+   this.nacteniSerialu(event);
   }
 }
