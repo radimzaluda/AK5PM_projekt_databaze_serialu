@@ -8,12 +8,15 @@ import { SerialyPageRoutingModule } from './serialy-routing.module';
 
 import { SerialyPage } from './serialy.page';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SerialyPageRoutingModule
+    SerialyPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [SerialyPage]
 })

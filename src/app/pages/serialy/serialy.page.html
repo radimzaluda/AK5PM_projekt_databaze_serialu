@@ -1,12 +1,24 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Trending Serials</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-searchbar
+  
+  placeholder="Search serial"   
+  [(ngModel)]="searchterm"
+  showCancelButton="focus"
+  animate>
+
+    </ion-searchbar>
   <ion-list>
-    <ion-item button *ngFor="let item of serialy" [routerLink]="[item.id]">
+    <ion-item button *ngFor="let item of serialy | filter:searchterm" [routerLink]="[item.id]">
       <ion-avatar slot="start">
         <img [src]="imageBaseUrl + '/w92' + item.poster_path" />
       </ion-avatar>

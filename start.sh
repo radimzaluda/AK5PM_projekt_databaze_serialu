@@ -10,3 +10,6 @@ ionic g service services/serialinfo
 ionic g page pages/movies
 ionic g page pages/movieinfo
 ionic g service services/movie
+
+#instalace možnosti vyhledávání
+npm install ng2-search-filter

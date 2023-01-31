@@ -13,6 +13,7 @@ export class SerialyPage implements OnInit {
   serialy = [] as any;
   currentPage = 1;
   imageBaseUrl = environment.images;
+  searchterm: string | undefined;
 
   constructor(
     private SerialinfoService: SerialinfoService,

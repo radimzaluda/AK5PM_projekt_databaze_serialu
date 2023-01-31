@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>serialinfo</ion-title>
+  <ion-toolbar color = "success">
+    <ion-title>{{ serial?.title }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/serialy"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="serial">
+  <img [src]="imageBaseUrl + '/w400' + serial?.poster_path"/>
+<ion-card-header>
+  <ion-card-title> {{serial.title}} </ion-card-title>
+
+  <ion-card-subtitle> {{ serial.tagline }}</ion-card-subtitle>
+
+  <ion-text color="tertiary">
+    <span *ngFor="let g of serial.genres; let isLast = last">
+      {{g.name}} {{ !isLast ? '.' : ''}}
+    </span>
+
+</ion-text>
+
+  </ion-card-header>
+
+  </ion-card>
 
 </ion-content>

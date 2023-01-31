@@ -12,6 +12,7 @@ export class MoviesPage implements OnInit {
   movies = [] as any;
   currentPage = 1;
   imageBaseUrl = environment.images;
+  searchterm: string | undefined;
  
   constructor(
     private movieService: MovieService,
