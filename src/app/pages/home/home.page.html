@@ -1,27 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Databáze filmů a seriálů
+    <ion-title class="ion-text-center">
+      MOVIES & SERIALS DATABASE 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="RedirectToMovies()"> Movie database
+<ion-grid>
+  <br>
+ <ion-row >
+  <ion-col>
+  <ion-button 
+  
+  color="none"
+  size="large"
+  id="ImageMovies" style=" background-size:cover" 
+  (click)="RedirectToMovies()">
     
   </ion-button>
-
-  <ion-button (click)="RedirectToSerialy()"> Serial database
+  </ion-col>
+  </ion-row>
+<br>
+  <ion-row >
+    <ion-col>
+  <ion-button 
+  color="none"
+  size="large"
+  id="ImageSerials" style=" background-size:cover" 
+  (click)="RedirectToSerialy()">
     
   </ion-button>
-
+</ion-col>
+</ion-row>
+</ion-grid>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Mobilní aplikace databáze filmů a seriálů</strong>
-  </div>
 </ion-content>

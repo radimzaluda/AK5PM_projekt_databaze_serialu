@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+
+#ImageMovies {
+  
+  background-image: url('movies.png');
+  height: 200px;
+  width: 350px;
+}
+
+#ImageSerials {
+  
+  background-image: url('serials.png');
+  height: 200px;
+  width: 350px;
+}
+
+ion-col {
+ 
+  border: solid 1px #fff;
+   text-align: center;
+  --ion-grid-column-padding: 8px;
+  
+}
+ion-toolbar {
+  --background: #FFE22D;
+  color: black;
+  font-style: bold;
+
+}
+   

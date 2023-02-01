@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AK5PM_projekt_databaze_serialu</string>
+    <string name="title_activity_main">AK5PM_projekt_databaze_serialu</string>
+    <string name="package_name">com.ionic.AK5PM</string>
+    <string name="custom_url_scheme">com.ionic.AK5PM</string>
+</resources>
