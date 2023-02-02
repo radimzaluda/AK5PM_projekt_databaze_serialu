@@ -26,13 +26,10 @@ imageBaseUrl = environment.images;
     this.movie=res;
     });
 
-  
-  }
-  ulozFilm = async () => {
-    await Preferences.set({
-      key: 'name',
-      value: 'anyfilm',
-    });
-  };
 
+  }
+  ulozFilm ()
+  {
+    
+  }
 }
