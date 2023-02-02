@@ -46,3 +46,7 @@ npx cap sync
       useDialog: true,
     },
   },
+
+  #instalace capacitor preferences
+  npm install @capacitor/preferences
+  npx cap sync

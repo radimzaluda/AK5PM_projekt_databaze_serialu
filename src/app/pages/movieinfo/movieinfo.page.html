@@ -3,7 +3,11 @@
     <ion-title>{{ movie?.title }}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/movies"></ion-back-button>
+
+     <ion-button color="tertiary" (click)="ulozFilm()">Save film</ion-button>
+
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { MovieService } from 'src/app/services/movie.service';
 import { environment } from 'src/environments/environment';
+
  
 @Component({
   selector: 'app-movies',
@@ -51,4 +52,6 @@ export class MoviesPage implements OnInit {
     this.currentPage++;
     this.nactiFilmy(event);
   }
+
+  
 }

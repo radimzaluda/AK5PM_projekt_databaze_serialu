@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Preferences } from '@capacitor/Preferences';
 import { MovieService } from 'src/app/services/movie.service';
 import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-movieinfo',
@@ -13,7 +15,9 @@ export class MovieinfoPage implements OnInit {
 movie=null as any;
 imageBaseUrl = environment.images;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: MovieService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -21,6 +25,14 @@ imageBaseUrl = environment.images;
      {console.log(res);
     this.movie=res;
     });
+
+  
   }
+  ulozFilm = async () => {
+    await Preferences.set({
+      key: 'name',
+      value: 'anyfilm',
+    });
+  };
 
 }

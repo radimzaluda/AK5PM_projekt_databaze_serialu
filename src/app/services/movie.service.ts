@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Preferences} from '@capacitor/Preferences';
 
 //vygenerováno z wwww stránek http://json2ts.com/
 export interface Result {
@@ -44,4 +46,12 @@ export class MovieService {
       `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}`
     );
   }
+
+
+  async uloz (key:string, value:any) {
+    await Preferences.set({key,value})
+  };
+
+
+ 
 }
