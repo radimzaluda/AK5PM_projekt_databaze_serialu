@@ -29,6 +29,7 @@ export interface ApiResult {
   total_results: number;
 }
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -47,11 +48,10 @@ export class MovieService {
     );
   }
 
-
-  async uloz (key:string, value:any) {
-    await Preferences.set({key,value})
-  };
-
+async ulozFilm(key:string, value:any)
+{
+  await Preferences.set({key,value})
+}
 
  
 }
